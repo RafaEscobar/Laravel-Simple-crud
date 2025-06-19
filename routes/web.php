@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BookController::class, 'index']);
+Route::get('/', [BookController::class, 'index'])->name('welcome');
+
+Route::resource('/authors', AuthorController::class);
+Route::resource('/books', BookController::class)->except('index');
