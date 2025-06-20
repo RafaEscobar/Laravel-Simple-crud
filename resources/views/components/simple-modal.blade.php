@@ -9,8 +9,12 @@
                 <span class="text-2xl font-semibold mb-4">{{ $title }}</span>
                 <span id="btnClose"><x-fas-circle-xmark class="w-6 text-gray-500 cursor-pointer" /></span>
             </div>
-            {{ $body }}
-            {{ $footer }}
+            <div class="my-4">
+                {{ $body }}
+            </div>
+            <div class="flex justify-end ">
+                {{ $footer }}
+            </div>
         </div>
     </div>
 </div>

@@ -2,21 +2,7 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Autores</span>
-            <x-simple-modal title="Agregar autor">
-                <x-slot:btn>
-                    <x-custom-btn label="Agregar autor">
-                        <x-slot:icon>
-                            <x-fas-plus class="w-4" />
-                        </x-slot:icon>
-                    </x-custom-btn>
-                </x-slot:btn>
-                <x-slot:body>
-                    <h1>este es el body</h1>
-                </x-slot:body>
-                <x-slot:footer>
-                    <h2>este es el footer</h2>
-                </x-slot:footer>
-            </x-simple-modal>
+            <x-author.form/>
         </div>
         @if($authors->isNotEmpty())
             <div class="px-48 mt-16">
