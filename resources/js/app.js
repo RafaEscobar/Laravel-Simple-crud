@@ -28,7 +28,7 @@
                 modalBody.appendChild(stepTwo.cloneNode(true));
             } else {
                 modal.classList.add('hidden');
-                modal.classList.remove('flex');
+                modal.classList.remove('flex'); 
                 currentStep = 'step1';
             }
         })

@@ -8,12 +8,14 @@
             </x-custom-btn>
         </x-slot:btn>
         <x-slot:footer>
-            <x-custom-btn label="Guardar" class="bg-green-500 font-medium" />
+            <x-custom-btn label="Continuar" />
         </x-slot:footer>
     </x-simple-modal>
-    <div id="stepOne">
-        <x-forms.simple-input name="name" label="Nombre del autor" />
-        <x-forms.simple-input name="lastName" label="Apellido del autor" />
-        <x-forms.simple-input name="email" label="Correo electrónico" type="email" />
+    <div class="hidden">
+        <div id="stepOne">
+            <x-forms.simple-input name="name" label="Nombre del autor" />
+            <x-forms.simple-input name="lastName" label="Apellido del autor" />
+            <x-forms.simple-input name="email" label="Correo electrónico" type="email" />
+        </div>
     </div>
 </div>
