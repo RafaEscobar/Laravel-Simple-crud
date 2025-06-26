@@ -10,6 +10,7 @@
     let currentStep = 'step1';
 
     openButton.addEventListener('click', () => {
+        console.log("olis");
         modalBody.innerHTML = '';
         modalBody.appendChild(stepOne.cloneNode(true));
         modal.classList.remove('hidden');
@@ -28,10 +29,9 @@
                 modalBody.appendChild(stepTwo.cloneNode(true));
             } else {
                 modal.classList.add('hidden');
-                modal.classList.remove('flex'); 
+                modal.classList.remove('flex');
                 currentStep = 'step1';
             }
         })
-
     }
 })();
