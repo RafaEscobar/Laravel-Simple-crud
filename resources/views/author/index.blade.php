@@ -26,9 +26,10 @@
                                     </td>
                                     <td class="p-4 border-b border-slate-200 py-5">
                                         <div class="flex gap-4">
+                                            <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
                                             <x-confirm-modal>
                                                 <x-slot:btn>
-                                                    <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
+                                                    <x-fas-trash class="w-5 text-gray-500" />
                                                 </x-slot:btn>
                                                 <x-slot:body>
                                                     <span>¿Estas seguro que deseas eliminar este registro?</span>
@@ -37,9 +38,6 @@
                                                     <x-custom-btn label="Aceptar" class="bg-green-500" />
                                                 </x-slot:confirmButton>
                                             </x-confirm-modal>
-                                            <a href="">
-                                                <x-fas-trash class="w-5 text-gray-500" />
-                                            </a>
                                         </div>
                                     </td>
                                 </tr>

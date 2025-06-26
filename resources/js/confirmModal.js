@@ -18,9 +18,4 @@
             confirmModal.classList.remove('flex');
         })
     });
-    /*
-    acceptButton.addEventListener('click', () => {
-        // HACEMOS ALGO
-    });
-    */
 })();
