@@ -9,9 +9,6 @@
 
     let currentStep = 'step1';
 
-    console.log(stepOne);
-    console.log(stepTwo);
-
     openButton.addEventListener('click', () => {
         modalBody.innerHTML = '';
         modalBody.appendChild(stepOne.cloneNode(true));
