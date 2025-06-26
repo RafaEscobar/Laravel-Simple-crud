@@ -26,13 +26,17 @@
                                     </td>
                                     <td class="p-4 border-b border-slate-200 py-5">
                                         <div class="flex gap-4">
-                                            <div>
-                                                <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
-                                                <div>
-                                                    <span>¿Estas seguro que deseas eliminar?</span>
-                                                </div>
-
-                                            </div>
+                                            <x-confirm-modal>
+                                                <x-slot:btn>
+                                                    <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
+                                                </x-slot:btn>
+                                                <x-slot:body>
+                                                    <span>¿Estas seguro que deseas eliminar este registro?</span>
+                                                </x-slot:body>
+                                                <x-slot:confirmButton>
+                                                    <x-custom-btn label="Aceptar" class="bg-green-500" />
+                                                </x-slot:confirmButton>
+                                            </x-confirm-modal>
                                             <a href="">
                                                 <x-fas-trash class="w-5 text-gray-500" />
                                             </a>
