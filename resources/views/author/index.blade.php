@@ -29,7 +29,7 @@
                                             <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
                                             <x-confirm-modal>
                                                 <x-slot:btn>
-                                                    <x-fas-trash class="w-5 text-gray-500" />
+                                                    <x-fas-trash class="w-5 text-gray-500 cursor-pointer" />
                                                 </x-slot:btn>
                                                 <x-slot:body>
                                                     <span>¿Estas seguro que deseas eliminar este registro?</span>
