@@ -2,9 +2,7 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Libros</span>
-            <x-custom-btn label="Agregar libro">
-                <x-slot:icon><x-fas-plus class="w-4" /></x-slot:icon>
-            </x-custom-btn>
+            <x-books.form/>
         </div>
         @forelse($books as $book)
             <x-book-card :book="$book" />
