@@ -1,3 +1,7 @@
+@props([
+    'authors' => null
+])
+
 <div>
     <x-simple-modal title="Agregar libro">
         <x-slot:btn>
@@ -19,7 +23,7 @@
                 name="Autor"
                 id="autorId"
                 placeholder="Selecciona al autor"
-                :options="[]"
+                :options="$authors"
             />
         </div>
         <div id="stepTwo">

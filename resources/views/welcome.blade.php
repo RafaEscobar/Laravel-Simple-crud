@@ -2,7 +2,7 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Libros</span>
-            <x-books.form/>
+            <x-books.form :authors="$authors" />
         </div>
         @forelse($books as $book)
             <x-book-card :book="$book" />
