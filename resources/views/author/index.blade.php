@@ -6,6 +6,11 @@
         </div>
         @if($authors->isNotEmpty())
             <div class="px-48 mt-16">
+                @if (session('success'))
+                    <div class="bg-green-500 text-white p-4 rounded mb-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="flex flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-lg">
                     <table class="w-full text-left">
                         <thead>

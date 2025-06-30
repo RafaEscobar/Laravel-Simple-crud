@@ -22,7 +22,8 @@ class AuthorController extends Controller
     {
         try {
             Author::create($request->all());
-            dd("Autor registrado exitosamente");
+            session()->flash('success', 'Autor registrado');
+            return redirect()->route('authors.index');
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }
