@@ -1,6 +1,7 @@
 (() => {
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modalBody');
+    const modalBodyEdit = document.getElementById('modalBodyEdit');
     const stepOne = document.getElementById('stepOne');
     const stepTwo = document.getElementById('stepTwo');
 
@@ -26,7 +27,7 @@
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
             }
-            if (modalEdit.classList.contains('flex')) {
+            if (modalEdit && modalEdit.classList.contains('flex')) {
                 modalEdit.classList.add('hidden');
                 modalEdit.classList.remove('flex');
             }
@@ -49,16 +50,10 @@
 
     if(btnEdit) {
         btnEdit.addEventListener('click', () => {
-            const stepOneContent = document.getElementById('stepOne');
-            console.log(stepOneContent);
-            if (stepOneContent) {
-                modalBody.innerHTML = '';
-                modalBody.appendChild(document.getElementById('modalBody').cloneNode(true));
-                modalEdit.classList.remove('hidden');
-                modalEdit.classList.add('flex');
-            } else {
-                console.error('stepOne no está disponible en el DOM.');
-            }
+            modalBodyEdit.innerHTML = '';
+            modalBodyEdit.appendChild(stepOne.cloneNode(true));
+            modalEdit.classList.remove('hidden');
+            modalEdit.classList.add('flex');
         });
     }
 })();
