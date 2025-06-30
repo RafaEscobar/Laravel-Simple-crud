@@ -2,8 +2,24 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Autores</span>
+            <x-simple-modal
+                title="Agregar autor"
+                type="create"
+                >
+                <x-slot:btn>
+                    <x-custom-btn label="Agregar autor">
+                        <x-slot:icon>
+                            <x-fas-plus class="w-4" />
+                        </x-slot:icon>
+                    </x-custom-btn>
+                </x-slot:btn>
+                <x-slot:footer>
+                    <x-forms.btn-submit label="Continuar" id="submitBtn" />
+                </x-slot:footer>
+            </x-simple-modal>
             <x-author.form/>
         </div>
+
         @if($authors->isNotEmpty())
             <div class="px-48 mt-16">
                 @if (session('success'))
@@ -31,7 +47,22 @@
                                     </td>
                                     <td class="p-4 border-b border-slate-200 py-5">
                                         <div class="flex gap-4">
-                                            <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
+                                            <x-simple-modal
+                                                title="Agregar autor"
+                                                type="create"
+                                                >
+                                                <x-slot:btn>
+                                                    <x-custom-btn label="Agregar autor">
+                                                        <x-slot:icon>
+                                                            <x-fas-plus class="w-4" />
+                                                        </x-slot:icon>
+                                                    </x-custom-btn>
+                                                </x-slot:btn>
+                                                <x-slot:footer>
+                                                    <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
+                                                </x-slot:footer>
+                                            </x-simple-modal>
+                                            <x-author.form type="edit" route="authors.update" :id="$author->id" />
                                             <x-confirm-modal>
                                                 <x-slot:btn>
                                                     <x-fas-trash class="w-5 text-gray-500 cursor-pointer" />

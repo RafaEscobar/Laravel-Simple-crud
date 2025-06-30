@@ -28,4 +28,9 @@ class AuthorController extends Controller
             dd($th->getMessage());
         }
     }
+
+    public function update(Request $request, $id)
+    {
+
+    }
 }
