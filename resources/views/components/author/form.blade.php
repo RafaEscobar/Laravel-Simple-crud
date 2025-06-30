@@ -8,16 +8,20 @@
             </x-custom-btn>
         </x-slot:btn>
         <x-slot:footer>
-            <x-forms.btn-submit label="Continuar" route="authors.store" id="submitBtn" />
+            <x-forms.btn-submit label="Continuar" id="submitBtn" />
         </x-slot:footer>
     </x-simple-modal>
-    <div class="hidden">
-        <form action="{{ route('authors.store') }}" id="currentForm">
-            <div id="stepOne">
+    <div class="hidden" >
+        <div id="stepOne">
+            <form action="{{ route('authors.store') }}" id="currentForm" method="POST">
+                @csrf
                 <x-forms.simple-input name="name" label="Nombre del autor" />
-                <x-forms.simple-input name="lastName" label="Apellido del autor" />
+                @error('name')
+                    <span class="text-red-500">{{$message}}</span>
+                @enderror
+                <x-forms.simple-input name="last_name" label="Apellido del autor" />
                 <x-forms.simple-input name="email" label="Correo electrónico" type="email" />
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>

@@ -18,13 +18,13 @@ class AuthorController extends Controller
         }
     }
 
-    public function store(AuthorRequest $request)
+    public function store(Request $request)
     {
         try {
             Author::create($request->all());
             dd("Autor registrado exitosamente");
         } catch (\Throwable $th) {
-            // Lanzar un mensaje de error interno
+            dd($th->getMessage());
         }
     }
 }
