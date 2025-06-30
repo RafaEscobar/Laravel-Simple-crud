@@ -11,7 +11,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        $authors = Author::all()->pluck('name', 'id');
+        $authors = Author::all()->pluck('full_name', 'id');
         return view('welcome', compact('books', 'authors'));
     }
 }
