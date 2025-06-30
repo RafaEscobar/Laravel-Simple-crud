@@ -12,19 +12,21 @@
             </x-custom-btn>
         </x-slot:btn>
         <x-slot:footer>
-            <x-custom-btn label="Continuar" id="btnNextStep"/>
+            <x-forms.btn-submit label="Enviar" route="authors.store" id="submitBtn" />
         </x-slot:footer>
     </x-simple-modal>
     <div class="hidden">
         <div id="stepOne">
-            <x-forms.simple-input name="name" label="Título" />
-            <x-forms.simple-input name="lastName" label="Año de publicación" type="date"/>
-            <x-forms.simple-select
-                name="Autor"
-                id="autorId"
-                placeholder="Selecciona al autor"
-                :options="$authors"
-            />
+            <form action="{{route('authors.store')}}" id="currentForm">
+                <x-forms.simple-input name="name" label="Título" />
+                <x-forms.simple-input name="lastName" label="Año de publicación" type="date"/>
+                <x-forms.simple-select
+                    name="Autor"
+                    id="autorId"
+                    placeholder="Selecciona al autor"
+                    :options="$authors"
+                />
+            </form>
         </div>
         <div id="stepTwo">
             <x-forms.simple-input-file
