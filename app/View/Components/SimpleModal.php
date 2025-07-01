@@ -13,7 +13,7 @@ class SimpleModal extends Component
      */
     public function __construct(
         public string $title,
-        public string $type,
+        public string $type = 'create',
     ) {}
 
     /**
