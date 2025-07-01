@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorRequest;
 use App\Models\Author;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -27,6 +28,13 @@ class AuthorController extends Controller
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }
+    }
+
+    public function edit($id)
+    {
+        $authors = Author::all();
+        $author = Author::where('id', $id)->get();
+        return view('author.index', compact('authors', 'author'));
     }
 
     public function update(Request $request, $id)
