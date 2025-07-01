@@ -30,11 +30,9 @@ class AuthorController extends Controller
         }
     }
 
-    public function edit($id)
+    public function create()
     {
-        $authors = Author::all();
-        $currentAuthor = Author::where('id', $id)->first();
-        return view('author.index', compact('authors', 'currentAuthor'));
+        return view('author.create');
     }
 
     public function update(Request $request, $id)

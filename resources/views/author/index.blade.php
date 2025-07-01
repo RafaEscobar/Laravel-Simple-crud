@@ -2,7 +2,7 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Autores</span>
-            <span>BTN para crear</span>
+            <a href="{{ route('authors.create') }}">CREAT</a>
         </div>
 
         @if($authors->isNotEmpty())
