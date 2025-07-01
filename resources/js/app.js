@@ -49,11 +49,9 @@
     }
 
     if(btnEdit) {
-        btnEdit.addEventListener('click', () => {
-            modalBodyEdit.innerHTML = '';
-            modalBodyEdit.appendChild(stepOne.cloneNode(true));
-            modalEdit.classList.remove('hidden');
-            modalEdit.classList.add('flex');
-        });
+        modalBodyEdit.innerHTML = '';
+        modalBodyEdit.appendChild(stepOne.cloneNode(true));
+        modalEdit.classList.remove('hidden');
+        modalEdit.classList.add('flex');
     }
 })();

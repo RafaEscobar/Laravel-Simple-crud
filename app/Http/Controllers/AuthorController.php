@@ -33,7 +33,7 @@ class AuthorController extends Controller
     public function edit($id)
     {
         $authors = Author::all();
-        $currentAuthor = Author::where('id', $id)->get();
+        $currentAuthor = Author::where('id', $id)->first();
         return view('author.index', compact('authors', 'currentAuthor'));
     }
 

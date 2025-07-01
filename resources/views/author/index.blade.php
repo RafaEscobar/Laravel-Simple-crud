@@ -2,22 +2,7 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Autores</span>
-            <x-simple-modal
-                title="Agregar autor"
-                type="create"
-                >
-                <x-slot:btn>
-                    <x-custom-btn label="Agregar autor">
-                        <x-slot:icon>
-                            <x-fas-plus class="w-4" />
-                        </x-slot:icon>
-                    </x-custom-btn>
-                </x-slot:btn>
-                <x-slot:footer>
-                    <x-forms.btn-submit label="Continuar" id="submitBtn" />
-                </x-slot:footer>
-            </x-simple-modal>
-            <x-author.form/>
+            <span>BTN para crear</span>
         </div>
 
         @if($authors->isNotEmpty())
@@ -47,35 +32,8 @@
                                     </td>
                                     <td class="p-4 border-b border-slate-200 py-5">
                                         <div class="flex gap-4">
-                                            <a href="{{ route('authors.edit', $author->id) }}">
-                                                <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
-                                            </a>
-                                            @isset($currentAuthor)
-                                                <x-simple-modal
-                                                    title="Editar autor"
-                                                    type="update"
-                                                    :initiallyOpen=true
-                                                    >
-                                                    <x-slot:btn>
-
-                                                    </x-slot:btn>
-                                                    <x-slot:footer>
-                                                        <x-forms.btn-submit label="Continuar" id="submitBtn" />
-                                                    </x-slot:footer>
-                                                </x-simple-modal>
-                                            @endisset
-                                            <x-author.form type="edit" route="authors.update" :id="$author->id" />
-                                            <x-confirm-modal>
-                                                <x-slot:btn>
-                                                    <x-fas-trash class="w-5 text-gray-500 cursor-pointer" />
-                                                </x-slot:btn>
-                                                <x-slot:body>
-                                                    <span>¿Estas seguro que deseas eliminar este registro?</span>
-                                                </x-slot:body>
-                                                <x-slot:confirmButton>
-                                                    <x-custom-btn label="Aceptar" class="bg-green-500" />
-                                                </x-slot:confirmButton>
-                                            </x-confirm-modal>
+                                            <span>BTN PARA EDITAR</span>
+                                            BTN PARA CONFIRMAR
                                         </div>
                                     </td>
                                 </tr>
