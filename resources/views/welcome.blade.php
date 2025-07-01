@@ -1,13 +1,15 @@
 <x-app-layout>
     <div class="h-full p-6">
-        <span class="text-3xl font-light">Libros</span>
+        <div class="flex justify-between px-12">
+            <span class="text-4xl font-light">Libros</span>
+            <x-books.form :authors="$authors" />
+        </div>
         @forelse($books as $book)
             <x-book-card :book="$book" />
         @empty
-        <div class="text-gray-400 h-1/2 flex flex-col items-center justify-end">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-18" fill="currentColor" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
-            <p class="mt-4 text-3xl">Aún no tienes libros</p>
-        </div>
+            <x-empty-state label="Aún no tienes libros">
+                <x-slot:icon><x-fas-circle-question class="w-20" /></x-slot:icon>
+            </x-empty-state>
         @endforelse
     </div>
 </x-app-layout>
