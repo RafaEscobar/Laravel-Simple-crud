@@ -47,13 +47,14 @@
                                     </td>
                                     <td class="p-4 border-b border-slate-200 py-5">
                                         <div class="flex gap-4">
-                                            <a href="">
+                                            <a href="{{ route('authors.edit', $author->id) }}">
                                                 <x-fas-user-edit class="w-7 text-gray-500 cursor-pointer" />
                                             </a>
-                                            @if ($author)
+                                            @isset($currentAuthor)
                                                 <x-simple-modal
                                                     title="Editar autor"
                                                     type="update"
+                                                    :initiallyOpen=true
                                                     >
                                                     <x-slot:btn>
 
@@ -62,7 +63,7 @@
                                                         <x-forms.btn-submit label="Continuar" id="submitBtn" />
                                                     </x-slot:footer>
                                                 </x-simple-modal>
-                                            @endif
+                                            @endisset
                                             <x-author.form type="edit" route="authors.update" :id="$author->id" />
                                             <x-confirm-modal>
                                                 <x-slot:btn>

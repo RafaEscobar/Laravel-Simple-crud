@@ -14,6 +14,7 @@ class SimpleModal extends Component
     public function __construct(
         public string $title,
         public string $type = 'create',
+        public bool $initiallyOpen = false
     ) {}
 
     /**
