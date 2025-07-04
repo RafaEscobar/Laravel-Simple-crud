@@ -4,9 +4,10 @@
     'icon' => null
 ])
 
-<a href="{{ $route }}" class="bg-blue-500 px-3 py-2 rounded-xl text-white flex items-center justify-center cursor-pointer hover:bg-blue-400 active:bg-blue-600 select-none">
+<a href="{{ $route }}"
+    {{ $attributes->merge(['class' => 'bg-blue-500 px-3 py-2 rounded-xl text-white flex items-center justify-center cursor-pointer hover:bg-blue-400 active:bg-blue-600 select-none']) }}>
     @isset($label)
-        <span class="mr-4">
+        <span class="{{ $icon ? 'mr-4' : '' }}">
             {{$label}}
         </span>
     @endisset

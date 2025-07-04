@@ -40,7 +40,7 @@
                                                     <x-fas-user-edit class="w-6" />
                                                 </x-slot:icon>
                                             </x-btn-link>
-                                            <x-custom-btn id="openingBtn">
+                                            <x-custom-btn class="deleteBtn" data-id="{{ $author->id }}" id="openingBtn">
                                                 <x-slot:icon>
                                                     <x-fas-trash class="w-4" />
                                                 </x-slot:icon>
@@ -62,8 +62,12 @@
         @endif
         <x-simple-modal label="¿Estas seguro que deseas eliminar este registro?">
             <x-slot:footer>
-                <x-custom-btn label="Cancelar" />
-                <x-btn-link />
+                <x-custom-btn label="Cancelar" class="closeBtn mr-3" />
+                <form id="deleteForm" method="POST" data-id="authors">
+                    @csrf
+                    @method('DELETE')
+                    <x-custom-btn class="bg-green-500 hover:bg-green-400" label="Eliminar" type="submit" />
+                </form>
             </x-slot:footer>
         </x-simple-modal>
     </div>

@@ -59,6 +59,7 @@ class AuthorController extends Controller
         try {
             $author->delete();
             session()->flash('success', 'Author eliminado exitosamente.');
+            return redirect()->route('authors.index');
         } catch (\Throwable $th) {
             throw $th->getMessage();
         }
