@@ -2,9 +2,12 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Autores</span>
-            <a href="{{ route('authors.create') }}">CREAT</a>
+            <x-btn-link label="Crear" route="authors.create">
+                <x-slot:btn>
+                    <x-fas-plus class="w-4" />
+                </x-slot:btn>
+            </x-btn-link>
         </div>
-
         @if($authors->isNotEmpty())
             <div class="px-48 mt-16">
                 @if (session('success'))
