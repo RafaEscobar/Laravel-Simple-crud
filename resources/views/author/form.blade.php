@@ -1,10 +1,8 @@
 @props([
-    'type' => null,
-    'route' => null,
-    'id' => null,
+    'type' => 'create',
     'author' => null
 ])
 
 <x-app-layout>
-    <x-author.form :type="$type" :route="$route" :id="$id" :author="$author" />
+    <x-author.form :type="$type" :author="$author" />
 </x-app-layout>

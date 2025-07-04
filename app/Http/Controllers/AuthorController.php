@@ -33,6 +33,16 @@ class AuthorController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        try {
+            $author = Author::where('id', $id)->first();
+            return view('author.form', ['author' => $author, 'type' => 'update']);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
 
     public function update(Request $request, $id)
     {
