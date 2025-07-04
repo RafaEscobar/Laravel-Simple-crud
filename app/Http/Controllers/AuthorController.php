@@ -37,9 +37,9 @@ class AuthorController extends Controller
     {
         try {
             $author = Author::where('id', $id)->first();
-            return view('author.form', ['author' => $author, 'type' => 'update']);
+            return view('author.form', ['author' => $author, 'isCreate' => false]);
         } catch (\Throwable $th) {
-            //throw $th;
+            dd($th->getMessage());
         }
     }
 
