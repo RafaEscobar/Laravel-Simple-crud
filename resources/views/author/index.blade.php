@@ -3,9 +3,9 @@
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Autores</span>
             <x-btn-link label="Crear" :route="route('authors.create')">
-                <x-slot:btn>
+                <x-slot:icon>
                     <x-fas-plus class="w-4" />
-                </x-slot:btn>
+                </x-slot:icon>
             </x-btn-link>
         </div>
         @if($authors->isNotEmpty())
@@ -36,15 +36,15 @@
                                     <td class="p-4 border-b border-slate-200 py-5">
                                         <div class="flex gap-4">
                                             <x-btn-link :route="route('authors.edit', $author->id)">
-                                                <x-slot:btn>
-                                                    <x-fas-user-edit class="w-4" />
-                                                </x-slot:btn>
+                                                <x-slot:icon>
+                                                    <x-fas-user-edit class="w-6" />
+                                                </x-slot:icon>
                                             </x-btn-link>
-                                            <x-btn-link :route="route('authors.destroy', $author->id)">
-                                                <x-slot:btn>
+                                            <x-custom-btn id="openingBtn">
+                                                <x-slot:icon>
                                                     <x-fas-trash class="w-4" />
-                                                </x-slot:btn>
-                                            </x-btn-link>
+                                                </x-slot:icon>
+                                            </x-custom-btn>
                                         </div>
                                     </td>
                                 </tr>
@@ -60,5 +60,11 @@
                 </x-slot:icon>
             </x-empty-state>
         @endif
+        <x-simple-modal label="¿Estas seguro que deseas eliminar este registro?">
+            <x-slot:footer>
+                <x-custom-btn label="Cancelar" />
+                <x-btn-link />
+            </x-slot:footer>
+        </x-simple-modal>
     </div>
 </x-app-layout>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/js/app.js', 'resources/css/app.css', 'resources/js/confirmModal.js', 'resources/js/forms.js'])
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
     <title>CRUD</title>
 </head>
 <body class="h-screen w-screen flex bg-gray-100">
