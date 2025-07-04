@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AuthorRequest;
 use App\Models\Author;
-use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -19,6 +17,11 @@ class AuthorController extends Controller
         }
     }
 
+    public function create()
+    {
+        return view('author.form');
+    }
+
     public function store(Request $request)
     {
         try {
@@ -30,10 +33,6 @@ class AuthorController extends Controller
         }
     }
 
-    public function create()
-    {
-        return view('author.create');
-    }
 
     public function update(Request $request, $id)
     {
