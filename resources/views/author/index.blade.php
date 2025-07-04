@@ -40,7 +40,11 @@
                                                     <x-fas-user-edit class="w-4" />
                                                 </x-slot:btn>
                                             </x-btn-link>
-                                            BTN PARA CONFIRMAR
+                                            <x-btn-link :route="route('authors.destroy', $author->id)">
+                                                <x-slot:btn>
+                                                    <x-fas-trash class="w-4" />
+                                                </x-slot:btn>
+                                            </x-btn-link>
                                         </div>
                                     </td>
                                 </tr>
