@@ -29,23 +29,27 @@ class AuthorController extends Controller
             session()->flash('success', 'Autor registrado');
             return redirect()->route('authors.index');
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            throw $th->getMessage();
         }
     }
 
-    public function edit($id)
+    public function edit(Author $author)
     {
         try {
-            $author = Author::where('id', $id)->first();
             return view('author.form', ['author' => $author, 'isCreate' => false]);
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            throw $th->getMessage();
         }
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Author $author)
     {
-
+        try {
+            $author->update($request->all());
+            return redirect()->route('authors.index');
+        } catch (\Throwable $th) {
+            throw $th->getMessage();
+        }
     }
 }
