@@ -2,7 +2,11 @@
     <div class="h-full p-6">
         <div class="flex justify-between px-12">
             <span class="text-4xl font-light">Libros</span>
-            <x-books.form :authors="$authors" />
+            <x-btn-link label="Crear" :route="route('books.create')">
+                <x-slot:icon>
+                    <x-fas-plus class="w-4" />
+                </x-slot:icon>
+            </x-btn-link>
         </div>
         @forelse($books as $book)
             <x-book-card :book="$book" />

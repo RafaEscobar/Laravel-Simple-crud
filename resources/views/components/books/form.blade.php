@@ -1,25 +1,14 @@
 @props([
+    'isCreate' => true,
+    'book' => null,
     'authors' => null
 ])
 
-<div>
-    <x-simple-modal title="Agregar libro">
-        <x-slot:btn>
-            <x-custom-btn label="Agregar libro">
-                <x-slot:icon>
-                    <x-fas-plus class="w-4" />
-                </x-slot:icon>
-            </x-custom-btn>
-        </x-slot:btn>
-        <x-slot:footer>
-            <x-forms.btn-submit label="Enviar" route="authors.store" id="submitBtn" />
-        </x-slot:footer>
-    </x-simple-modal>
-    <div class="hidden">
-        <div id="stepOne">
-            <form action="{{route('authors.store')}}" id="currentForm">
-                <x-forms.simple-input name="name" label="Título" />
-                <x-forms.simple-input name="lastName" label="Año de publicación" type="date"/>
+<div class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white w-1/3 p-8 rounded-3xl">
+        <form action="{{ $isCreate ? route('books.store') : route('books.update', $book->id) }}" id="currentForm">
+                <x-forms.simple-input name="title" label="Título" value="{{ old('title', $book->title ?? '') }}" />
+                <x-forms.simple-input name="published_year" label="Año de publicación" type="date" value="{{ old('published_year', $book->published_year ?? '') }}" />
                 <x-forms.simple-select
                     name="Autor"
                     id="autorId"
@@ -27,13 +16,5 @@
                     :options="$authors"
                 />
             </form>
-        </div>
-        <div id="stepTwo">
-            <x-forms.simple-input-file
-                name="profile_picture"
-                id="profile-picture-upload"
-                label="Subir Foto de Perfil"
-            />
-        </div>
     </div>
 </div>

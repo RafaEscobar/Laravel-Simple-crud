@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Models\Book;
-use Illuminate\Http\Request;
+
 
 class BookController extends Controller
 {
@@ -13,5 +13,11 @@ class BookController extends Controller
         $books = Book::all();
         $authors = Author::all()->pluck('full_name', 'id');
         return view('welcome', compact('books', 'authors'));
+    }
+
+    public function create()
+    {
+        $authors = Author::all()->pluck('full_name', 'id');
+        return view('book.form', compact('authors'));
     }
 }
