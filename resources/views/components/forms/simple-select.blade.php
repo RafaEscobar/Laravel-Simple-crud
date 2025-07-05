@@ -22,4 +22,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
         </svg>
     </div>
+    @error($name)
+        <span class="text-red-600 text-sm mt-1 block">{{ $message }}</span>
+    @enderror
 </div>

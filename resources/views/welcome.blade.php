@@ -8,6 +8,11 @@
                 </x-slot:icon>
             </x-btn-link>
         </div>
+        @if (session('success'))
+            <div class="bg-green-500 text-white p-4 rounded mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
         @forelse($books as $book)
             <x-book-card :book="$book" />
         @empty
