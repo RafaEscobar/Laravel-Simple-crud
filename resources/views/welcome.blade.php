@@ -23,4 +23,14 @@
             @endforelse
         </div>
     </div>
+    <x-simple-modal label="¿Estas seguro que deseas eliminar este registro?">
+        <x-slot:footer>
+            <x-custom-btn label="Cancelar" class="closeBtn mr-3" />
+            <form id="deleteForm" method="POST" data-id="books">
+                @csrf
+                @method('DELETE')
+                <x-custom-btn class="bg-green-500 hover:bg-green-400" label="Eliminar" type="submit" />
+            </form>
+        </x-slot:footer>
+    </x-simple-modal>
 </x-app-layout>

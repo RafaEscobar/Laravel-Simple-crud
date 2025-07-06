@@ -11,19 +11,27 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
-        $authors = Author::all()->pluck('full_name', 'id');
-        return view('welcome', compact('books', 'authors'));
+        try {
+            $books = Book::all();
+            $authors = Author::all()->pluck('full_name', 'id');
+            return view('welcome', compact('books', 'authors'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function create()
     {
-        $currentYear = date('Y');
-        $years = range($currentYear, $currentYear - 80);
-        $years = array_combine($years, $years);
-        $authors = Author::all()->pluck('full_name', 'id');
+        try {
+            $currentYear = date('Y');
+            $years = range($currentYear, $currentYear - 80);
+            $years = array_combine($years, $years);
+            $authors = Author::all()->pluck('full_name', 'id');
 
-        return view('book.form', compact('authors', 'years'));
+            return view('book.form', compact('authors', 'years'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function store(BookRequest $request)
@@ -43,8 +51,18 @@ class BookController extends Controller
             session()->flash('success', 'Libro registrado');
             return redirect()->route('welcome');
         } catch (\Throwable $th) {
-            dd($th);
-            throw $th->getMessage();
+            throw $th;
+        }
+    }
+
+    public function destroy(Book $book)
+    {
+        try {
+            $book->delete();
+            session()->flash('success', 'Libro eliminado.');
+            return redirect()->route('welcome');
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }

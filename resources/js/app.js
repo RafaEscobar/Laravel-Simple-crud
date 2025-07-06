@@ -1,13 +1,17 @@
 (() => {
     //* BTN de confirmación
-    const openingBtn = document.getElementById('openingBtn');
+    const openingBtn = document.querySelectorAll('.openingBtn');
     const closeBtn = document.querySelectorAll('.closeBtn');
     const modal = document.getElementById('modal');
 
+    console.log(openingBtn)
+
     if (openingBtn) {
-        openingBtn.addEventListener('click', () => {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+        openingBtn.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            });
         });
     }
     if (closeBtn) {
