@@ -18,8 +18,12 @@ class BookController extends Controller
 
     public function create()
     {
+        $currentYear = date('Y');
+        $years = range($currentYear, $currentYear - 80);
+        $years = array_combine($years, $years);
         $authors = Author::all()->pluck('full_name', 'id');
-        return view('book.form', compact('authors'));
+
+        return view('book.form', compact('authors', 'years'));
     }
 
     public function store(BookRequest $request)
