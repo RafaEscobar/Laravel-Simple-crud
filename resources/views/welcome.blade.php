@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="h-full p-6">
-        <div class="flex justify-between px-12">
+        <div class="flex justify-between px-12 mb-10">
             <span class="text-4xl font-light">Libros</span>
             <x-btn-link label="Crear" :route="route('books.create')">
                 <x-slot:icon>
@@ -13,12 +13,14 @@
                 {{ session('success') }}
             </div>
         @endif
-        @forelse($books as $book)
-            <x-book-card :book="$book" />
-        @empty
-            <x-empty-state label="Aún no tienes libros">
-                <x-slot:icon><x-fas-circle-question class="w-20" /></x-slot:icon>
-            </x-empty-state>
-        @endforelse
+        <div class="grid grid-cols-10 gap-4 pl-12">
+            @forelse($books as $book)
+                <x-book-card :book="$book" />
+            @empty
+                <x-empty-state label="Aún no tienes libros">
+                    <x-slot:icon><x-fas-circle-question class="w-20" /></x-slot:icon>
+                </x-empty-state>
+            @endforelse
+        </div>
     </div>
 </x-app-layout>
