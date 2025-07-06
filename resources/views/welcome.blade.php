@@ -13,15 +13,17 @@
                 {{ session('success') }}
             </div>
         @endif
-        <div class="grid grid-cols-10 gap-4 pl-12">
-            @forelse($books as $book)
-                <x-book-card :book="$book" />
-            @empty
-                <x-empty-state label="Aún no tienes libros">
-                    <x-slot:icon><x-fas-circle-question class="w-20" /></x-slot:icon>
-                </x-empty-state>
-            @endforelse
-        </div>
+        @if ($books->isNotEmpty())
+            <div class="grid grid-cols-10 gap-4 pl-12">
+                @foreach ($books as $book)
+                    <x-book-card :book="$book" />
+                @endforeach
+            </div>
+        @else
+            <x-empty-state label="Aún no tienes libros">
+                <x-slot:icon><x-fas-circle-question class="w-20" /></x-slot:icon>
+            </x-empty-state>
+        @endif
     </div>
     <x-simple-modal label="¿Estas seguro que deseas eliminar este registro?">
         <x-slot:footer>

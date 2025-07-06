@@ -11,25 +11,28 @@
         <span class="text-2xl">{{$isCreate ? 'Registrar libro' : 'Actualizar libro'}}</span>
         <form action="{{ $isCreate ? route('books.store') : route('books.update', $book->id) }}"  method="POST" class="mt-8" enctype="multipart/form-data">
             @csrf
+            @unless ($isCreate)
+                @method('PUT')
+            @endunless
             <x-forms.simple-input name="title" label="Título" value="{{ old('title', $book->title ?? '') }}" />
             <span class="block mb-12"></span>
             <x-forms.simple-select
                     name="published_year"
-                    id="published_year"
+                    id="{{ $book->published_year ?? 0 }}"
                     placeholder="Selecciona el año de publicación"
                     :options="$years"
                 />
                 <span class="block mb-10"></span>
             <x-forms.simple-select
                 name="author_id"
-                id="author_id"
+                id="{{ $book->author_id ?? 0 }}"
                 placeholder="Selecciona al autor"
                 :options="$authors"
             />
             <span class="block mb-6"></span>
             <x-forms.simple-input name="cover" label="" type="file" />
             <span class="block mb-10"></span>
-            <x-custom-btn label="Enviar" class="mt-8" />
+            <x-custom-btn label="{{ $isCreate ? 'Enviar' : 'Actualizar' }}" class="mt-8" />
         </form>
     </div>
 </div>

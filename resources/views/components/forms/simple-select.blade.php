@@ -13,7 +13,7 @@
     >
         <option value="" disabled selected>{{ $placeholder }}</option>
         @foreach($options as $key => $value)
-            <option value="{{ $key }}">{{ $value }}</option>
+            <option value="{{ $key }}" {{ $id == $key ? 'selected' : null }}>{{ $value }}</option>
         @endforeach
     </select>
     <label for="email" class="absolute left-0 -top-5.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">{{$placeholder}}</label>
