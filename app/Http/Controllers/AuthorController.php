@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Store\AuthorRequest;
 use App\Models\Author;
 use Illuminate\Http\Request;
 
@@ -22,12 +23,11 @@ class AuthorController extends Controller
         return view('author.form');
     }
 
-    public function store(Request $request)
+    public function store(AuthorRequest $request)
     {
         try {
-            Author::create($request->all());
-            session()->flash('success', 'Autor registrado');
-            return redirect()->route('authors.index');
+            Author::create($request->validated());
+            return redirect()->route('authors.index')->with('success', 'Autor registrado');
         } catch (\Throwable $th) {
             throw $th->getMessage();
         }
@@ -47,7 +47,6 @@ class AuthorController extends Controller
     {
         try {
             $author->update($request->all());
-            session()->flash('success', 'Autor editado exitosamente.');
             return redirect()->route('authors.index');
         } catch (\Throwable $th) {
             throw $th->getMessage();
@@ -58,8 +57,7 @@ class AuthorController extends Controller
     {
         try {
             $author->delete();
-            session()->flash('success', 'Author eliminado exitosamente.');
-            return redirect()->route('authors.index');
+            return redirect()->route('authors.index')->with('success', 'Author eliminado exitosamente.');
         } catch (\Throwable $th) {
             throw $th->getMessage();
         }

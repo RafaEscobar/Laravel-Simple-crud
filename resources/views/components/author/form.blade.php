@@ -6,7 +6,7 @@
 <div class="flex items-center justify-center h-screen bg-gray-100">
     <div class="bg-white w-1/3 p-8 rounded-3xl">
         <span class="text-2xl">{{$isCreate ? 'Crear autor' : 'Editar autor'}}</span>
-        <form action="{{ $isCreate ? route('authors.store') : route('authors.update', $author->id) }}"  method="POST" class="mt-8">
+        <form action="{{ $isCreate ? route('authors.store') : route('authors.update', $author->id) }}"  method="POST" class="mt-8 flex flex-col gap-8">
             @csrf
             @unless ($isCreate)
                 @method('PUT')

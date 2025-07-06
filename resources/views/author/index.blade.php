@@ -40,7 +40,7 @@
                                                     <x-fas-user-edit class="w-6" />
                                                 </x-slot:icon>
                                             </x-btn-link>
-                                            <x-custom-btn class="deleteBtn" data-id="{{ $author->id }}" id="openingBtn">
+                                            <x-custom-btn class="deleteBtn openingBtn" data-id="{{ $author->id }}">
                                                 <x-slot:icon>
                                                     <x-fas-trash class="w-4" />
                                                 </x-slot:icon>
